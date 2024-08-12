@@ -5,7 +5,7 @@
 - Simple mobile screen recording function.
 - 簡易的手機畫面錄製功能。
 
-![](./Example.gif)
+![](./Example.png)
 
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 
