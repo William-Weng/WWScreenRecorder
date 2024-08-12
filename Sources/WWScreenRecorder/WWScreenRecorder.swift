@@ -12,6 +12,8 @@ open class WWScreenRecorder: NSObject {
     
     public static let shared = WWScreenRecorder()
     
+    public var isRecording: Bool { self.screenRecorder.isRecording }
+    
     private let screenRecorder = RPScreenRecorder.shared()
     
     private override init() { super.init() }
