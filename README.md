@@ -15,6 +15,11 @@ dependencies: [
 ]
 ```
 
+### Parameter - 可用參數
+|參數|說明|
+|-|-|
+|isRecording|是否正在錄影|
+
 ### Function - 可用函式
 |函式|功能|
 |-|-|

@@ -12,6 +12,7 @@ open class WWScreenRecorder: NSObject {
     
     public static let shared = WWScreenRecorder()
     
+    /// 是否正在錄影
     public var isRecording: Bool { self.screenRecorder.isRecording }
     
     private let screenRecorder = RPScreenRecorder.shared()
