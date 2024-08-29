@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/William-Weng/WWScreenRecorder",
       "state" : {
-        "revision" : "620a9e6cbde326dec954f6612343531d0f85e653",
-        "version" : "1.0.2"
+        "revision" : "2c93d157b7423e38802d124c7fcb13924142c834",
+        "version" : "1.0.3"
       }
     }
   ],
