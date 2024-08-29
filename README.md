@@ -11,7 +11,7 @@
 
 ```bash
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWScreenRecorder.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/William-Weng/WWScreenRecorder.git", .upToNextMajor(from: "1.0.3"))
 ]
 ```
 
@@ -23,8 +23,8 @@ dependencies: [
 ### Function - 可用函式
 |函式|功能|
 |-|-|
-|startRecording(isCameraEnabled:isMicrophoneEnabled:result:)|開始錄製螢幕畫面|
-|stopRecording(result:)|停止錄製螢幕畫面|
+|start(isCameraEnabled:isMicrophoneEnabled:result:)|開始錄製螢幕畫面|
+|stop(result:)|停止錄製螢幕畫面|
 
 ### Example
 ```swift
@@ -40,17 +40,20 @@ final class ViewController: UIViewController {
     
     @IBAction func startRecoding(_ sender: UIBarButtonItem) {
         
-        WWScreenRecorder.shared.startRecording { result in
-            switch result {
-            case .failure(let error): wwPrint("startRecording => \(error)")
-            case .success(let isSuccess): wwPrint("startRecording => \(isSuccess)")
+        WWScreenRecorder.shared.stop { _ in
+            
+            WWScreenRecorder.shared.start { result in
+                switch result {
+                case .failure(let error): wwPrint("startRecording => \(error)")
+                case .success(let isSuccess): wwPrint("startRecording => \(isSuccess)")
+                }
             }
         }
     }
     
     @IBAction func stopRecoding(_ sender: UIBarButtonItem) {
         
-        WWScreenRecorder.shared.stopRecording { result in
+        WWScreenRecorder.shared.stop { result in
             switch result {
             case .failure(let error): wwPrint("startRecording => \(error)")
             case .success(let previewViewController): self.present(previewViewController, animated: true)

@@ -27,9 +27,10 @@ open class WWScreenRecorder: NSObject {
 }
 
 // MARK: - RPScreenRecorderDelegate, RPPreviewViewControllerDelegate
-extension WWScreenRecorder: RPScreenRecorderDelegate, RPPreviewViewControllerDelegate {
+extension WWScreenRecorder: RPScreenRecorderDelegate, RPPreviewViewControllerDelegate {}
+public extension WWScreenRecorder {
     
-    public func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
+     func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
         previewController.dismiss(animated: true, completion: nil)
     }
 }
@@ -42,7 +43,7 @@ public extension WWScreenRecorder {
     ///   - isCameraEnabled: [錄製鏡頭的畫面](https://developer.apple.com/documentation/replaykit)
     ///   - isMicrophoneEnabled: [錄製麥克風取得的聲音](https://developer.apple.com/cn/videos/play/wwdc2021/10101/)
     ///   - result: [(Result<Bool, Error>) -> Void](https://support.apple.com/zh-tw/guide/security/seca5fc039dd/web)
-    func startRecording(isCameraEnabled: Bool = true, isMicrophoneEnabled: Bool = true, result: @escaping (Result<Bool, Error>) -> Void) {
+    func start(isCameraEnabled: Bool = true, isMicrophoneEnabled: Bool = true, result: @escaping (Result<Bool, Error>) -> Void) {
         
         guard screenRecorder.isAvailable else { result(.failure(CustomError.isNotAvailable)); return }
         
@@ -57,7 +58,7 @@ public extension WWScreenRecorder {
     
     /// [停止錄製螢幕畫面](https://medium.com/@jerryleetw1992/錄製app畫面-replaykit-by-swiftui-54927c6347b7)
     /// - Parameter result: [Result<RPPreviewViewController, Error>) -> Void](https://youtu.be/9dFsoQKBT0g)
-    func stopRecording(result: @escaping (Result<RPPreviewViewController, Error>) -> Void) {
+    func stop(result: @escaping (Result<RPPreviewViewController, Error>) -> Void) {
         
         screenRecorder.stopRecording { previewViewController, error in
             

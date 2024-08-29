@@ -18,9 +18,9 @@ final class ViewController: UIViewController {
     
     @IBAction func startRecoding(_ sender: UIBarButtonItem) {
         
-        WWScreenRecorder.shared.stopRecording { _ in
+        WWScreenRecorder.shared.stop { _ in
             
-            WWScreenRecorder.shared.startRecording { result in
+            WWScreenRecorder.shared.start { result in
                 switch result {
                 case .failure(let error): wwPrint("startRecording => \(error)")
                 case .success(let isSuccess): wwPrint("startRecording => \(isSuccess)")
@@ -31,7 +31,7 @@ final class ViewController: UIViewController {
     
     @IBAction func stopRecoding(_ sender: UIBarButtonItem) {
         
-        WWScreenRecorder.shared.stopRecording { result in
+        WWScreenRecorder.shared.stop { result in
             switch result {
             case .failure(let error): wwPrint("startRecording => \(error)")
             case .success(let previewViewController): self.present(previewViewController, animated: true)
